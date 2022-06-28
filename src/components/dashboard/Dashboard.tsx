@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom />
                 <Row gutter={10}>
-                    <Col className="gutter-row" md={4}>
+                    <Col className="gutter-row" md={24}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <div className="clear y-center">
@@ -48,8 +48,6 @@ class Dashboard extends React.Component {
                                 </div>
                             </Card>
                         </div>
-                    </Col>
-                    <Col className="gutter-row" md={4}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <div className="clear y-center">
@@ -77,16 +75,8 @@ class Dashboard extends React.Component {
                             </Card>
                         </div>
                     </Col>
-                    <Col className="gutter-row" md={16}>
-                        <div className="gutter-box">
-                            <Card bordered={false} className={'no-padding'}>
-                                <EchartsProjects />
-                            </Card>
-                        </div>
-                    </Col>
-                </Row>
-                <Row gutter={10}>
-                    <Col className="gutter-row" md={8}>
+                    {/* <Col className="gutter-row" md={4} /> */}
+                    {/* <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
                             <Card bordered={false}>
                                 <div className="pb-m">
@@ -112,7 +102,16 @@ class Dashboard extends React.Component {
                                 </Timeline>
                             </Card>
                         </div>
-                    </Col>
+                    </Col> */}
+                    {/* <Col className="gutter-row" md={16}>
+                        <div className="gutter-box">
+                            <Card bordered={false} className={'no-padding'}>
+                                <EchartsProjects />
+                            </Card>
+                        </div>
+                    </Col> */}
+                </Row>
+                {/* <Row gutter={10}>
                     <Col className="gutter-row" md={8}>
                         <div className="gutter-box">
                             <Card bordered={false}>
@@ -195,7 +194,7 @@ class Dashboard extends React.Component {
                             </Card>
                         </div>
                     </Col>
-                </Row>
+                </Row> */}
             </div>
         );
     }
