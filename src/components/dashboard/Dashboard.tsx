@@ -18,6 +18,14 @@ import {
 
 const pluginMap = new Map([
     [
+        'weather',
+        {
+            title: '天气',
+            content: '捕捉关键词后发送附加城市的天气',
+            keyWords: ['天气'],
+        },
+    ],
+    [
         'anime',
         {
             title: '涩涩',
@@ -87,13 +95,12 @@ class Dashboard extends React.Component {
             list.push(
                 // let list = plugin.map((value) => (
                 <div className="gutter-box">
-                    <Card bordered={false}>
+                    <Card bordered={false} title={value.title}>
                         <div className="clear y-center">
                             <div className="pull-left mr-m">
                                 <RightOutlined className="text-2x text-success" />
                             </div>
                             <div className="clear">
-                                <div className="text-muted">{value.title}</div>
                                 <h3>{value.content}</h3>
                                 <h4>关键词：{value.keyWords.join('、')}</h4>
                             </div>

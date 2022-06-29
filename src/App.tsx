@@ -125,9 +125,7 @@ const App = (props: AppProps) => {
                 <Content className="app_layout_content">
                     <Routes auth={auth} />
                 </Content>
-                <Footer className="app_layout_foot">
-                    <Copyright />
-                </Footer>
+                <Footer className="app_layout_foot">{/* <Copyright /> */}</Footer>
             </Layout>
         </Layout>
     );
