@@ -12,17 +12,108 @@ import {
     CloudOutlined,
     HeartOutlined,
     MailOutlined,
+    RightOutlined,
     SyncOutlined,
 } from '@ant-design/icons';
 
+const pluginMap = new Map([
+    [
+        'anime',
+        {
+            title: '涩涩',
+            content: '捕捉关键词后发送一张动漫图片',
+            keyWords: ['涩图', '我要涩涩', '开始涩涩'],
+        },
+    ],
+    [
+        'dog',
+        {
+            title: '舔狗日记',
+            content: '捕捉关键词后发送一段舔狗日记',
+            keyWords: ['舔狗日记'],
+        },
+    ],
+    [
+        'encourage',
+        {
+            title: '鸡汤',
+            content: '捕捉关键词后发送一段鸡汤文学',
+            keyWords: ['鸡汤', '毒鸡汤'],
+        },
+    ],
+    [
+        'theBeauty',
+        {
+            title: '看看美女',
+            content: '捕捉关键词后发送一张美女图片',
+            keyWords: ['MV', 'MM', 'MZ', '美女', '妹妹', '妹子'],
+        },
+    ],
+    [
+        'qrcode',
+        {
+            title: '生成二维码',
+            content: '捕捉关键词后将附加内容转成二维码发送出来',
+            keyWords: ['qr', 'qrcode', '二维码'],
+        },
+    ],
+    [
+        'whatIsHot',
+        {
+            title: '热搜',
+            content: '捕捉关键词后发送对应热搜榜',
+            keyWords: ['zhihu', '知乎', 'douyin', '抖音'],
+        },
+    ],
+]);
+const plugin = [
+    {
+        name: 'whatIsHot',
+        title: '热搜',
+        content: '捕捉关键词后发送对应热搜榜',
+        keyWords: ['zhihu', '知乎', 'douyin', '抖音'],
+    },
+];
+let sum = (value: any, key: any): any => {
+    alert(`${key}: ${value}`); // cucumber: 500 etc
+};
 class Dashboard extends React.Component {
+    constructor(props: any) {
+        super(props);
+    }
+    getAll() {
+        let list: JSX.Element[] = [];
+        pluginMap.forEach((value, key, map) => {
+            list.push(
+                // let list = plugin.map((value) => (
+                <div className="gutter-box">
+                    <Card bordered={false}>
+                        <div className="clear y-center">
+                            <div className="pull-left mr-m">
+                                <RightOutlined className="text-2x text-success" />
+                            </div>
+                            <div className="clear">
+                                <div className="text-muted">{value.title}</div>
+                                <h3>{value.content}</h3>
+                                <h4>关键词：{value.keyWords.join('、')}</h4>
+                            </div>
+                        </div>
+                    </Card>
+                </div>
+            );
+        });
+        console.log(list);
+        return list;
+    }
     render() {
         return (
             <div className="gutter-example button-demo">
                 <BreadcrumbCustom />
                 <Row gutter={10}>
                     <Col className="gutter-row" md={24}>
-                        <div className="gutter-box">
+                        {this.getAll()}
+                    </Col>
+                    {/* <div className="gutter-box">
                             <Card bordered={false}>
                                 <div className="clear y-center">
                                     <div className="pull-left mr-m">
@@ -73,8 +164,7 @@ class Dashboard extends React.Component {
                                     </div>
                                 </div>
                             </Card>
-                        </div>
-                    </Col>
+                        </div> */}
                     {/* <Col className="gutter-row" md={4} /> */}
                     {/* <Col className="gutter-row" md={12}>
                         <div className="gutter-box">
